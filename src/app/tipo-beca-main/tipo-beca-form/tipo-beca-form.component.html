@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="text-center">
+        <fa-icon class="fa-2x" [icon]="faCertificate"></fa-icon>
+    </div>
+    <hr>
+    <h6>{{title}}</h6>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="user">
+    <div class="card-body">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <input formControlName="nombre" type="text" class="form-control form-control-user" [(ngModel)]="tipoBeca.nombre" [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Nombre" />
+            <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+                <div *ngIf="f.nombre.errors.requerido">El nombre es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <textarea  formControlName="requisitos_especificos" type="text" class="form-control form-control-user" [(ngModel)]="tipoBeca.requisitos_especificos" [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Requisitos Específicos"></textarea>
+            <!-- <input formControlName="requisitos_especificos" type="text" class="form-control form-control-user" [(ngModel)]="tipoBeca.requisitos_especificos" [ngClass]="{'is-invalid': submitted && f.nombre.errors}" placeholder="Requisitos Específicos" /> -->
+            <div *ngIf="submitted && f.requisitos_especificos.errors" class="invalid-feedback">
+                <div *ngIf="f.requisitos_especificos.errors.requerido">El Requsito específico es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faPercent'></fa-icon></span>
+            </div>
+            <input formControlName="porcentaje_matricula" type="number" min="0" max="100" class="form-control form-control-user" [(ngModel)]="tipoBeca.porcentaje_matricula" [ngClass]="{'is-invalid': submitted && f.porcentaje_matricula.errors}" placeholder="Porcentaje" />
+            <div *ngIf="submitted && f.porcentaje_matricula.errors" class="invalid-feedback">
+                <div *ngIf="f.porcentaje_matricula.errors.requerido">El Porcentaje es requerido</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <input formControlName="tipo_calificacion_necesaria" type="text" class="form-control form-control-user" [(ngModel)]="tipoBeca.tipo_calificacion_necesaria" [ngClass]="{'is-invalid': submitted && f.tipo_calificacion_necesaria.errors}" placeholder="Tipo de calificación necesaria" />
+            <div *ngIf="submitted && f.tipo_calificacion_necesaria.errors" class="invalid-feedback">
+                <div *ngIf="f.tipo_calificacion_necesaria.errors.requerido">El tipo de calificación es necesaria</div>
+            </div>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><fa-icon [icon]='faIdCard'></fa-icon></span>
+            </div>
+            <textarea formControlName="documentos_respaldo" type="text" class="form-control form-control-user" [(ngModel)]="tipoBeca.documentos_respaldo" [ngClass]="{'is-invalid': submitted && f.documentos_respaldo.errors}" placeholder="Documentos de respaldo necesarios"></textarea>
+            <div *ngIf="submitted && f.documentos_respaldo.errors" class="invalid-feedback">
+                <div *ngIf="f.documentos_respaldo.errors.requerido">Los documentos de respaldo son necesarios</div>
+            </div>
+        </div>
+        <div class="btn-group">
+            <button type="submit" class="btn btn-success">
+                <fa-icon [icon]='faSave'></fa-icon>&nbsp;Guardar
+            </button>
+            <button type="reset" (click)="onReset()" class="btn btn-danger">
+                <fa-icon [icon]='faTimes'></fa-icon>&nbsp;Cancelar
+            </button>
+        </div>
+    </div>
+</form>
+<hr>
+

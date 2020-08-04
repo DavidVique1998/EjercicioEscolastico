@@ -1,0 +1,38 @@
+<div>
+    <div class="text-center">
+      <fa-icon class="fa-2x" [icon]="faListAlt"></fa-icon>
+    </div>
+    <hr>
+    <h5>Listado de tipos de Beca</h5>
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th>N°</th>
+          <th>Nombres</th>
+          <th>Requisitos Específicos</th>
+          <th>Documentos de Respaldo</th>
+          <th>Porcentaje de Matricula</th>
+          <th>Tipo de Calificación</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tipoBecas; let i = index">
+          <td>{{i+1}}</td>
+          <td>{{item.nombre}}</td>
+          <td>{{item.requisitos_especificos}}</td>
+          <td>{{item.documentos_respaldo}}</td>
+          <td>{{item.porcentaje_matricula}}%</td>
+          <td>{{item.tipo_calificacion_necesaria}}</td>
+          <td class="btn-group">
+            <button (click)="update(item)" class="btn btn-sm btn-warning">
+              <fa-icon [icon]="faPencilAlt"></fa-icon>
+            </button>
+            <button (click)="delete(item)" class="btn btn-sm btn-danger">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

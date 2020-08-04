@@ -1,0 +1,16 @@
+<div class="container text-center">
+    <br>
+    <div class="page-header">
+        <h4>Tipo de Beca <small>Operaciones CRUD-L Escolastico</small></h4>
+    </div>
+    <hr>
+    <div class="row justify-content-center h-100">
+        <div class="col-md-6">
+            <app-tipo-beca-form [tipoBeca]="mainTipoBeca" [title]="mainTitle"></app-tipo-beca-form>
+        </div>
+        <div class="col-md-6">
+            <app-tipo-beca-list (tipoBecaToUpdate)="toUpdate($event)" [flagToReload]="mainReload" (reloadComplete)="reloadDone($event)"></app-tipo-beca-list>
+        </div>
+    </div>
+    <hr>
+</div>
